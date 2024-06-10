@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engg App by Aparna</title>
+    <style>
+        * {font-size:40px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif }
+        body{background-color: bisque;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+        }
+        h1{background-color: blanchedalmond; width:500px}
+        .input{background-color: rgb(255, 251, 247);}
+        .input::placeholder {font-size: 20px; color: gray; font-family: arial;}
+        .select{width: 120px; font-size:35px;text-align: center;
+            background-color: rgb(255, 249, 240);padding: 2px;}
+        .btn {width:25%;background-color:rgb(252, 217, 175);}
+        h2{background-color: blanchedalmond; width:700px;}
+    </style>
+
+
+</head>
+<body>
+    <center>
+        <h1>Engineering App</h1>
+        <form onsubmit="show()">
+            <label for="name">Name</label>
+            <input type="text" placeholder="Enter your name here . . . " id="name" class="input" />
+            <br><br>
+            <label for="year">Select Engg Year</label>
+            <select id="year" class="select">
+                <option value="FE"/>FE
+                <option value="SE"/>SE
+                <option value="TE"/>TE
+                <option value="Be"/>BE
+            </select>
+            <br>
+            <br>
+            <input type="submit" class="btn"/>
+        </form>
+        <h2 id="msg"></h2>
+    </center>
+    <script>
+                        function show(){
+                    event.preventDefault();
+                    let name = document.getElementById("name");
+                    let year = document.getElementById("year");
+                    let msg = document.getElementById("msg");
+
+
+                    if (name.value ==""){
+                        alert("Name cannot be blank ");
+                        msg.innerHTML="";
+                        name.focus();
+                        return;
+                    }
+
+                    if (name.value.trim() ==""){
+                        alert("Name cannot be blank spaces ");
+                        msg.innerHTML="";
+                        name.value="";
+                        name.focus();
+                        return;
+                    }
+                    if (! name.value.match(/^[A-Za-z ]+$/)){
+                        alert("Name  should be only alphabets");
+                        msg.innerHTML="";
+                        name.value="";
+                        name.focus();
+                        return;
+                     }
+
+                    let ans = "name = "+name.value.trim()+", year = " +year.value;
+                    msg.innerHTML = ans;
+                }
+    </script>
+</body>
+</html>
